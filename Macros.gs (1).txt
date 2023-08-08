@@ -1,0 +1,169 @@
+var url = "https://docs.google.com/spreadsheets/d/148cDlpDy7Q_ycsjKTCHy_RcvA9sStEpb9jsl0iH5piw/edit?pli=1#gid=0"
+
+function PesquisarDados(criteriopesquisa, criteriopesquisa2, name) {
+
+  var planilha = SpreadsheetApp.openByUrl(url);
+  var guiadados = planilha.getSheetByName(name); 
+
+
+  var dados = guiadados.getRange(2, 2, guiadados.getLastRow(), guiadados.getLastColumn()).getValues();
+
+  for (var linha = 0; linha < dados.length; linha++) {
+
+    if (dados[linha][3] == criteriopesquisa && dados[linha][5] == criteriopesquisa2) {
+
+      var Carregar = {};
+
+      Carregar.Campo1 = dados[linha][3];
+      Carregar.Campo2 = dados[linha][5];
+      Carregar.Campo3 = dados[linha][0];
+      Carregar.Campo4 = dados[linha][6];
+      Carregar.Campo5 = dados[linha][8];
+      Carregar.Campo6 = dados[linha][19];
+      Carregar.Campo7 = dados[linha][9];
+      Carregar.Campo8 = dados[linha][20];
+      Carregar.Campo9 = dados[linha][28];
+      Carregar.Campo10 = dados[linha][10];
+      Carregar.Campo11 = dados[linha][21];
+      Carregar.Campo12 = dados[linha][11];
+      Carregar.Campo13 = dados[linha][22];
+      Carregar.Campo14 = dados[linha][12];
+      Carregar.Campo15 = dados[linha][23];
+      Carregar.Campo16 = dados[linha][13];
+      Carregar.Campo17 = dados[linha][24];
+      Carregar.Campo18 = dados[linha][14];
+      Carregar.Campo19 = dados[linha][25];
+      Carregar.Campo20 = dados[linha][15];
+      Carregar.Campo21 = dados[linha][26];
+      Carregar.Campo22 = dados[linha][16];
+      Carregar.Campo23 = dados[linha][27];
+      Carregar.Campo24 = dados[linha][17]
+      return ([Carregar.Campo1, Carregar.Campo2, Carregar.Campo3, Carregar.Campo4, Carregar.Campo5, Carregar.Campo6, Carregar.Campo7, Carregar.Campo8, Carregar.Campo9, Carregar.Campo10, Carregar.Campo11, Carregar.Campo12, Carregar.Campo13, Carregar.Campo14, Carregar.Campo15, Carregar.Campo16, Carregar.Campo17, Carregar.Campo18, Carregar.Campo19, Carregar.Campo20, Carregar.Campo21, Carregar.Campo22, Carregar.Campo23, Carregar.Campo24])
+
+
+    }
+
+
+
+  }
+
+  return "Não encontrado!";
+
+
+}
+
+function ExcluirDados(criteriopesquisa, criteriopesquisa2, name) {
+
+  var planilha = SpreadsheetApp.openByUrl(url);
+  var guiadados = planilha.getSheetByName(name);
+
+  var dados = guiadados.getRange(2, 2, guiadados.getLastRow(), guiadados.getLastColumn()).getValues();
+
+  for (var linha = 0; linha < dados.length; linha++) {
+
+    if (dados[linha][3] == criteriopesquisa && dados[linha][5] == criteriopesquisa2) {
+
+      var linha = linha + 2;
+
+      guiadados.deleteRow(linha);
+
+      return "Excluído!"
+
+
+    }
+
+  }
+
+  return "Não encontrado!";
+
+
+}
+
+
+function SalvarDados(Dados, name) {
+
+  var planilha = SpreadsheetApp.openByUrl(url);
+  var guiadados = planilha.getSheetByName(name);
+
+  var linha = guiadados.getLastRow() + 1;
+
+  guiadados.getRange(linha, 2).setValue([Dados.Campo3]); //Matricula
+  guiadados.getRange(linha, 5).setValue([Dados.Campo1]);  // Nome
+  guiadados.getRange(linha, 7).setValue([Dados.Campo2]); // UC 
+  guiadados.getRange(linha, 8).setValue([Dados.Campo4]); // Resultado
+  guiadados.getRange(linha, 10).setValue([Dados.Campo5]); // Aspecto Geral
+  guiadados.getRange(linha, 11).setValue([Dados.Campo7]); // Envolvimento 
+  guiadados.getRange(linha, 12).setValue([Dados.Campo10]); // Notas e Resultados
+  guiadados.getRange(linha, 13).setValue([Dados.Campo12]); // Comportamento
+  guiadados.getRange(linha, 14).setValue([Dados.Campo14]); // Desenvolvimento
+  guiadados.getRange(linha, 15).setValue([Dados.Campo16]); // Ações
+  guiadados.getRange(linha, 16).setValue([Dados.Campo18]); // CP
+  guiadados.getRange(linha, 17).setValue([Dados.Campo20]); // CC
+  guiadados.getRange(linha, 18).setValue([Dados.Campo22]); // Encaminhamentos
+  guiadados.getRange(linha, 19).setValue([Dados.Campo24]); // OBS pós conselho
+  guiadados.getRange(linha, 21).setValue([Dados.Campo6]); // Aspecto Geral final
+  guiadados.getRange(linha, 22).setValue([Dados.Campo8]); // Envolvimento final
+  guiadados.getRange(linha, 23).setValue([Dados.Campo11]); // Notas e Resultados final
+  guiadados.getRange(linha, 24).setValue([Dados.Campo13]); // Comportamento final
+  guiadados.getRange(linha, 25).setValue([Dados.Campo15]); // Desenvolvimento final
+  guiadados.getRange(linha, 26).setValue([Dados.Campo17]); // Ações final
+  guiadados.getRange(linha, 27).setValue([Dados.Campo19]); // CP final
+  guiadados.getRange(linha, 28).setValue([Dados.Campo21]); // CC final
+  guiadados.getRange(linha, 29).setValue([Dados.Campo23]); // Encaminhamentos final
+  guiadados.getRange(linha, 30).setValue([Dados.Campo9]); // Obs pos final
+
+  return "Salvo com sucesso!";
+}
+
+function EditarDados(Dados, name) {
+
+  var planilha = SpreadsheetApp.openByUrl(url);
+  var guiadados = planilha.getSheetByName(name);
+
+  var criteriopesquisa = Dados.Campo1
+  var criteriopesquisa2 = Dados.Campo2
+
+  var dados = guiadados.getRange(2, 2, guiadados.getLastRow(), guiadados.getLastColumn()).getValues();
+
+  for (var linha = 0; linha < dados.length; linha++) {
+
+    if (dados[linha][3] == criteriopesquisa && dados[linha][5] == criteriopesquisa2) {
+
+      var linha = linha + 2;
+
+      guiadados.getRange(linha, 2).setValue([Dados.Campo3]); //Matricula
+      guiadados.getRange(linha, 5).setValue([Dados.Campo1]);  // Nome
+      guiadados.getRange(linha, 7).setValue([Dados.Campo2]); // UC 
+      guiadados.getRange(linha, 8).setValue([Dados.Campo4]); // Resultado
+      guiadados.getRange(linha, 10).setValue([Dados.Campo5]); // Aspecto Geral
+      guiadados.getRange(linha, 11).setValue([Dados.Campo7]); // Envolvimento 
+      guiadados.getRange(linha, 12).setValue([Dados.Campo10]); // Notas e Resultados
+      guiadados.getRange(linha, 13).setValue([Dados.Campo12]); // Comportamento
+      guiadados.getRange(linha, 14).setValue([Dados.Campo14]); // Desenvolvimento
+      guiadados.getRange(linha, 15).setValue([Dados.Campo16]); // Ações
+      guiadados.getRange(linha, 16).setValue([Dados.Campo18]); // CP
+      guiadados.getRange(linha, 17).setValue([Dados.Campo20]); // CC
+      guiadados.getRange(linha, 18).setValue([Dados.Campo22]); // Encaminhamentos
+      guiadados.getRange(linha, 19).setValue([Dados.Campo24]); // OBS pós conselho
+      guiadados.getRange(linha, 21).setValue([Dados.Campo6]); // Aspecto Geral final
+      guiadados.getRange(linha, 22).setValue([Dados.Campo8]); // Envolvimento final
+      guiadados.getRange(linha, 23).setValue([Dados.Campo11]); // Notas e Resultados final
+      guiadados.getRange(linha, 24).setValue([Dados.Campo13]); // Comportamento final
+      guiadados.getRange(linha, 25).setValue([Dados.Campo15]); // Desenvolvimento final
+      guiadados.getRange(linha, 26).setValue([Dados.Campo17]); // Ações final
+      guiadados.getRange(linha, 27).setValue([Dados.Campo19]); // CP final
+      guiadados.getRange(linha, 28).setValue([Dados.Campo21]); // CC final
+      guiadados.getRange(linha, 29).setValue([Dados.Campo23]); // Encaminhamentos final
+      guiadados.getRange(linha, 30).setValue([Dados.Campo9]); // Obs pos final
+
+      return "Editado com sucesso!";
+    }
+  }
+
+  return "ID não encontrado!";
+
+}
+
+
+
+

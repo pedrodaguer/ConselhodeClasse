@@ -1,0 +1,430 @@
+<script>
+  function Mensagem(){
+   
+   this.Executar = function (){
+   
+    desabilitar();
+
+   var Largura = window.innerWidth;
+   var Altura = window.innerHeigth;
+    
+   var Objetos = document.getElementById("Componentes");
+   var Caixa = document.getElementById("CaixaMensagem");
+   
+   Objetos.style.display = "block";
+   Objetos.style.heigth = Altura+ "px";
+   
+   Caixa.style.left = (Largura/2) - (550 * .5)+"px";
+   Caixa.style.top = "10px";
+   Caixa.style.display = "block";
+   
+    document.getElementById("TituloMsg").innerHTML = "AVISO";
+    document.getElementById("CorpoMsg").innerHTML = "DESEJA REALMENTE EXCLUIR?";
+    document.getElementById("RodapeMsg").innerHTML = '<button class = "green" onclick= "Confirm.Sim()"> <b> <font color= "black" size = "5">Sim</font></b></button><button class = "red" onclick= "Confirm.Nao()"> <b><font color= "black" size = "5">Não</font></b></button>';                                                                                                               
+       
+   }
+   
+   this.Nao = function (){
+   
+      document.getElementById("CaixaMensagem").style.display = "none";
+      document.getElementById("Componentes").style.display = "none";
+
+      abilitar();
+   
+   }
+   
+   
+   this.Sim = function (){
+   
+var criteriopesquisa = document.getElementById("Campo1").value;
+  
+  if (criteriopesquisa.trim().length == 0){ 
+   var m = "CRITÉRIO NÃO PODE SER VAZIO";
+   caixaMsgbox(m);
+   return false;
+  };
+
+  var criteriopesquisa2 = document.getElementById("Campo2").value;
+  
+  if (criteriopesquisa2.trim().length == 0){ 
+   var m = "CRITÉRIO NÃO PODE SER VAZIO";
+   caixaMsgbox(m);
+   return false;
+  };   
+   if (criteriopesquisa.trim().length == 0 or criteriopesquisa2.trim().length == 0){   
+   
+     document.getElementById("CorpoMsg").innerHTML = "CANCELADO. CRITÉRIO NÃO PODE SER VAZIO!";
+      document.getElementById("RodapeMsg").innerHTML = '<button class = "orange" onclick= " Fechar()"> <b> <font color= "black" size = "5">Fechar</font></b></button>';
+
+   }else{   
+      
+      var criteriopesquisa = document.getElementById("Campo1").value;
+           var criteriopesquisa2 = document.getElementById("Campo2").value;
+      var name = document.getElementById("Campo25").value;
+
+      google.script.run.withSuccessHandler(Carregar).ExcluirDados(criteriopesquisa, criteriopesquisa2, name);
+  
+        function Carregar(retorno){  
+   
+          if (retorno != "Não encontrado!"){
+
+              document.getElementById("CorpoMsg").innerHTML = "EXCLUÍDO COM SUCESSO!";
+              document.getElementById("RodapeMsg").innerHTML = '<button class = "orange" onclick= " Fechar()"> <b> <font color= "black" size = "5">Fechar</font></b></button>';
+
+            Limpar();
+
+           }else{ 
+
+          document.getElementById("CorpoMsg").innerHTML = "REGISTRO NÃO ENCONTRADO!";
+          document.getElementById("RodapeMsg").innerHTML = '<button class = "orange" onclick= " Fechar()"> <b> <font color= "black" size = "5">Fechar</font></b></button>';
+
+            }
+    
+       }
+   
+     }
+    }
+   
+   }   
+   
+var Confirm = new Mensagem();
+
+function caixaMsgbox(m){
+
+   var Largura = window.innerWidth;
+   var Altura = window.innerHeigth;
+   
+   var Objetos = document.getElementById("Componentes");
+   var Caixa = document.getElementById("CaixaMensagem");
+   
+   Objetos.style.display = "block";
+   Objetos.style.heigth = Altura+ "px";
+   
+   Caixa.style.left = (Largura/2) - (550 * .5)+"px";
+   Caixa.style.top = "10px";
+   Caixa.style.display = "block";        
+
+  document.getElementById("TituloMsg").innerHTML = "AVISO"; 
+  document.getElementById("CorpoMsg").innerHTML = m;
+  document.getElementById("RodapeMsg").innerHTML = '<button class = "orange" onclick= " Fechar()"> <b> <font color= "black" size = "5">Fechar</font></b></button>';
+
+}
+
+function Fechar(){
+document.getElementById("CaixaMensagem").style.display = "none";
+document.getElementById("Componentes").style.display = "none";
+abilitar();
+}
+
+function desabilitar(){
+document.getElementById("Campo2").disabled = true;
+document.getElementById("Campo3").disabled = true;
+document.getElementById("Campo4").disabled = true;
+document.getElementById("Campo5").disabled = true;
+document.getElementById("Campo6").disabled = true;
+}
+
+function abilitar(){
+document.getElementById("Campo2").disabled = false;
+document.getElementById("Campo3").disabled = false;
+document.getElementById("Campo4").disabled = false;
+document.getElementById("Campo5").disabled = false;
+document.getElementById("Campo6").disabled = false;
+}
+
+
+ document.getElementById("btnlimpar").addEventListener("click", Limpar);
+
+  function Limpar(){ 
+  document.getElementById("Campo1").value = "";
+  document.getElementById("Campo2").value = "";
+  document.getElementById("Campo3").value = "";
+  document.getElementById("Campo4").value = "";
+  document.getElementById("Campo5").value = "";
+  document.getElementById("Campo6").value = "";    
+  document.getElementById("Campo7").value = "";
+  document.getElementById("Campo8").value = "";
+  document.getElementById("Campo9").value = "";
+  document.getElementById("Campo10").value = "";
+  document.getElementById("Campo11").value = "";
+  document.getElementById("Campo12").value = "";
+  document.getElementById("Campo13").value = "";
+  document.getElementById("Campo14").value = "";
+  document.getElementById("Campo15").value = "";
+  document.getElementById("Campo16").value = "";
+  document.getElementById("Campo17").value = "";
+  document.getElementById("Campo18").value = "";
+  document.getElementById("Campo19").value = "";
+  document.getElementById("Campo20").value = "";
+  document.getElementById("Campo21").value = "";
+  document.getElementById("Campo22").value = "";
+  document.getElementById("Campo23").value = "";
+  document.getElementById("Campo24").value = "";
+  }
+
+document.getElementById("btnpesquisar").addEventListener("click", Pesquisar);
+ 
+  function Pesquisar(){
+  
+  var criteriopesquisa = document.getElementById("Campo1").value;
+  
+  if (criteriopesquisa.trim().length == 0){ 
+   var m = "CRITÉRIO NÃO PODE SER VAZIO";
+   caixaMsgbox(m);
+   return false;
+  };
+
+  var criteriopesquisa2 = document.getElementById("Campo2").value;
+  
+  if (criteriopesquisa2.trim().length == 0){ 
+   var m = "CRITÉRIO NÃO PODE SER VAZIO";
+   caixaMsgbox(m);
+   return false;
+  };
+
+    var name = document.getElementById("Campo25").value;
+    
+  google.script.run.withSuccessHandler(Carregar).PesquisarDados(criteriopesquisa, criteriopesquisa2, name);
+  
+  function Carregar(retorno){  
+   
+  if (retorno != "Não encontrado!"){
+  
+  document.getElementById("Campo1").value = retorno[0]
+  M.updateTextFields();
+  document.getElementById("Campo2").value = retorno[1]
+  M.updateTextFields();
+  document.getElementById("Campo3").value = retorno[2]
+  M.updateTextFields();
+  document.getElementById("Campo4").value = retorno[3]
+  M.updateTextFields();
+  document.getElementById("Campo5").value = retorno[4]
+  M.updateTextFields();
+  document.getElementById("Campo6").value = retorno[5]
+  M.updateTextFields();
+  document.getElementById("Campo7").value = retorno[6]
+  M.updateTextFields();
+  document.getElementById("Campo8").value = retorno[7]
+  M.updateTextFields();
+  document.getElementById("Campo9").value = retorno[8]
+  M.updateTextFields();
+  document.getElementById("Campo10").value = retorno[9]
+  M.updateTextFields();
+  document.getElementById("Campo11").value = retorno[10]
+  M.updateTextFields();
+  document.getElementById("Campo12").value = retorno[11]
+  M.updateTextFields();
+  document.getElementById("Campo13").value = retorno[12]
+  M.updateTextFields();
+  document.getElementById("Campo14").value = retorno[13]
+  M.updateTextFields();
+  document.getElementById("Campo15").value = retorno[14]
+  M.updateTextFields();
+  document.getElementById("Campo16").value = retorno[15]
+  M.updateTextFields();
+  document.getElementById("Campo17").value = retorno[16]
+  M.updateTextFields();
+  document.getElementById("Campo18").value = retorno[17]
+  M.updateTextFields();
+  document.getElementById("Campo19").value = retorno[18]
+  M.updateTextFields();
+  document.getElementById("Campo20").value = retorno[19]
+  M.updateTextFields();
+  document.getElementById("Campo21").value = retorno[20]
+  M.updateTextFields();
+  document.getElementById("Campo22").value = retorno[21]
+  M.updateTextFields();
+  document.getElementById("Campo23").value = retorno[22]
+  M.updateTextFields();
+  document.getElementById("Campo24").value = retorno[23]
+  M.updateTextFields();
+  }
+  else{  
+    var m = "REGISTRO NÃO ENCONTRADO!";
+    caixaMsgbox(m);
+   Limpar();   
+    }  
+   }
+  }
+
+
+
+ document.getElementById("btnsalvar").addEventListener("click", Salvar);
+   
+   function Salvar(){
+   
+   var Campo1 = document.getElementById("Campo1").value;
+   var Campo2 = document.getElementById("Campo2").value;
+   var Campo3 = document.getElementById("Campo3").value;
+   var Campo4 = document.getElementById("Campo4").value;
+   var Campo5 = document.getElementById("Campo5").value;
+   var Campo6 = document.getElementById("Campo6").value;   
+   var Campo7 = document.getElementById("Campo7").value;
+   var Campo8 = document.getElementById("Campo8").value;
+   var Campo9 = document.getElementById("Campo9").value;
+   var Campo10 = document.getElementById("Campo10").value;
+   var Campo11 = document.getElementById("Campo11").value;
+   var Campo12 = document.getElementById("Campo12").value;
+   var Campo13 = document.getElementById("Campo13").value;
+   var Campo14 = document.getElementById("Campo14").value;
+   var Campo15 = document.getElementById("Campo15").value;
+   var Campo16 = document.getElementById("Campo16").value;
+   var Campo17 = document.getElementById("Campo17").value;
+   var Campo18 = document.getElementById("Campo18").value;
+   var Campo19 = document.getElementById("Campo19").value;
+   var Campo20 = document.getElementById("Campo20").value;
+   var Campo21 = document.getElementById("Campo21").value;
+   var Campo22 = document.getElementById("Campo22").value;
+   var Campo23 = document.getElementById("Campo23").value;
+   var Campo24 = document.getElementById("Campo24").value;
+   
+   if (Campo1.trim().length == 0 || Campo2.trim().length == 0 || Campo3.trim().length == 0 || Campo4.trim().length == 0 || 
+   Campo5.trim().length == 0 || Campo6.trim().length == 0 || Campo7.trim().length == 0 || Campo8.trim().length == 0 || Campo9.trim().length == 0 || Campo10.trim().length == 0 || Campo11.trim().length == 0 || Campo12.trim().length == 0 || Campo13.trim().length == 0 || Campo14.trim().length == 0 || Campo15.trim().length == 0 || Campo16.trim().length == 0 || Campo17.trim().length == 0 || Campo18.trim().length == 0 || Campo19.trim().length == 0 || Campo20.trim().length == 0 || Campo21.trim().length == 0 || Campo22.trim().length == 0 || Campo23.trim().length == 0 || Campo24.trim().length == 0 ){ 
+       
+    var m = "TODOS OS CAMPOS PRECISAM SER PREENCHIDOS!"
+    caixaMsgbox(m);
+
+  }else{
+   
+  var Dados ={
+  
+  Campo1: Campo1,
+  Campo2: Campo2,
+  Campo3: Campo3,
+  Campo4: Campo4,
+  Campo5: Campo5,
+  Campo6: Campo6,
+  Campo7: Campo7,
+  Campo8: Campo8,
+  Campo9: Campo9,
+  Campo10: Campo10,
+  Campo11: Campo11,
+  Campo12: Campo12,
+  Campo13: Campo13,
+  Campo14: Campo14,
+  Campo15: Campo15,
+  Campo16: Campo16,
+  Campo17: Campo17,
+  Campo18: Campo18,
+  Campo19: Campo19,
+  Campo20: Campo20,
+  Campo21: Campo21,
+  Campo22: Campo22,
+  Campo23: Campo23,
+  Campo24: Campo24,
+  
+  };
+   
+var name = document.getElementById("Campo25").value;
+
+ google.script.run.withSuccessHandler(Salvar).SalvarDados(Dados, name);
+   
+  function Salvar(retorno) {
+  
+  if(retorno =='Salvo com sucesso!'){
+    
+    var m = "SALVO COM SUCESSO!"
+    caixaMsgbox(m);    
+    Limpar();
+
+  }else{
+
+    var m = "ERRO AO SALVAR!"
+    caixaMsgbox(m);  
+
+       }
+
+   Limpar();
+  
+  }
+}
+}
+
+
+document.getElementById("btneditar").addEventListener("click", Editar);
+   
+   function Editar(){
+   
+   var Campo1 = document.getElementById("Campo1").value;
+   var Campo2 = document.getElementById("Campo2").value;
+   var Campo3 = document.getElementById("Campo3").value;
+   var Campo4 = document.getElementById("Campo4").value;
+   var Campo5 = document.getElementById("Campo5").value;
+   var Campo6 = document.getElementById("Campo6").value;   
+   var Campo7 = document.getElementById("Campo7").value;
+   var Campo8 = document.getElementById("Campo8").value;
+   var Campo9 = document.getElementById("Campo9").value;
+   var Campo10 = document.getElementById("Campo10").value;
+   var Campo11 = document.getElementById("Campo11").value;
+   var Campo12 = document.getElementById("Campo12").value;
+   var Campo13 = document.getElementById("Campo13").value;
+   var Campo14 = document.getElementById("Campo14").value;
+   var Campo15 = document.getElementById("Campo15").value;
+   var Campo16 = document.getElementById("Campo16").value;
+   var Campo17 = document.getElementById("Campo17").value;
+   var Campo18 = document.getElementById("Campo18").value;
+   var Campo19 = document.getElementById("Campo19").value;
+   var Campo20 = document.getElementById("Campo20").value;
+   var Campo21 = document.getElementById("Campo21").value;
+   var Campo22 = document.getElementById("Campo22").value;
+   var Campo23 = document.getElementById("Campo23").value;
+   var Campo24 = document.getElementById("Campo24").value;
+
+  }else{
+   
+  var Dados ={ 
+ 
+ Campo1: Campo1,
+ Campo2: Campo2,
+ Campo3: Campo3,
+ Campo4: Campo4,
+ Campo5: Campo5,
+ Campo6: Campo6,  
+ Campo7: Campo7, 
+ Campo8: Campo8, 
+ Campo9: Campo9, 
+ Campo10: Campo10, 
+ Campo11: Campo11, 
+ Campo12: Campo12, 
+ Campo13: Campo13, 
+ Campo14: Campo14, 
+ Campo15: Campo15, 
+ Campo16: Campo16, 
+ Campo17: Campo17, 
+ Campo18: Campo18, 
+ Campo19: Campo19, 
+ Campo20: Campo20, 
+ Campo21: Campo21, 
+ Campo22: Campo22, 
+ Campo23: Campo23, 
+ Campo24: Campo24, 
+   
+   };
+   
+var name = document.getElementById("Campo25").value;
+
+ google.script.run.withSuccessHandler(Editar).EditarDados(Dados, name);
+   
+  function Editar(retorno) {
+  
+  if(retorno != "ID não encontrado!" ){
+
+    var m = "EDITADO COM SUCESSO!"
+    caixaMsgbox(m);
+    Limpar();
+
+  }else{
+
+    var m = "REGISTRO NÃO ENCONTRADO PARA EDIÇÃO!"
+    caixaMsgbox(m);
+
+  }
+
+}
+}
+  
+document.getElementById("btnlimpar").addEventListener("click", Limpar);
+document.getElementById("btnpesquisar").addEventListener("click", Pesquisar);
+document.getElementById("btnsalvar").addEventListener("click", Salvar);
+
+</script>

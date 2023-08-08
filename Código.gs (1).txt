@@ -1,0 +1,27 @@
+function doGet() {
+
+  var url = "https://docs.google.com/spreadsheets/d/148cDlpDy7Q_ycsjKTCHy_RcvA9sStEpb9jsl0iH5piw/edit#gid=0"
+
+  var planilha = SpreadsheetApp.openByUrl(url);
+  var guia = planilha.getSheetByName("AUX");
+  var guia2 = planilha.getSheetByName("AUX2");
+
+
+  var list = guia.getRange(2, 1, guia.getLastRow(), guia.getLastColumn()).getValues();
+
+  var list2 = guia2.getRange(2, 2, guia.getLastRow(), guia.getLastColumn()).getValues();
+
+  var Form = HtmlService.createTemplateFromFile("Principal");
+
+  Form.list = list.map(function (r) { return r[0]; });
+  Form.list2 = list2.map(function (r2) { return r2[0]; });
+
+  return Form.evaluate().setSandboxMode(HtmlService.SandboxMode.IFRAME);
+
+}
+
+function Chamar(Arquivo) {
+
+  return HtmlService.createHtmlOutputFromFile(Arquivo).getContent();
+
+}

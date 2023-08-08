@@ -1,0 +1,452 @@
+<style>
+  #objetos {
+    background-color: #add9b3;
+  }
+
+  #LabelInter {
+    position: absolute;
+    top: 15px;
+    left: 400px;
+  }
+
+  #LabelFinal {
+    position: absolute;
+    top: 15px;
+    left: 1300px;
+
+  }
+
+  #Campo1 {
+    position: absolute;
+    top: 45px;
+    left: 150px;
+    width: 708px;
+    height: 22px;
+  }
+
+  #Label1 {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+  }
+
+  #Campo2 {
+    position: absolute;
+    top: 45px;
+    left: 1020px;
+    width: 708px;
+    height: 22px;
+  }
+
+  #Label2 {
+    position: absolute;
+    top: 45px;
+    left: 1265px;
+  }
+
+  #Campo3 {
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    width: 700px;
+    height: 15px;
+  }
+
+  #Label3 {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+  }
+
+  #Campo4 {
+    position: absolute;
+    top: 80px;
+    left: 1020px;
+    width: 708px;
+    height: 22px;
+  }
+
+  #Label4 {
+    position: absolute;
+    top: 80px;
+    left: 1265px;
+  }
+
+  #Campo5 {
+    position: absolute;
+    top: 115px;
+    left: 150px;
+    width: 708px;
+    height: 22px;
+  }
+
+  #Label5 {
+    position: absolute;
+    top: 115px;
+    left: 20px;
+  }
+
+  #Campo6 {
+    position: absolute;
+    top: 115px;
+    left: 1020px;
+    width: 708px;
+    height: 22px;
+  }
+
+  #Label6 {
+    position: absolute;
+    top: 115px;
+    left: 1265px;
+  }
+
+  #Campo7 {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label7 {
+    position: absolute;
+    top: 175px;
+    left: 20px;
+  }
+
+  #Campo8 {
+    position: absolute;
+    top: 150px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label8 {
+    position: absolute;
+    top: 175px;
+    left: 1265px;
+  }
+
+  #Campo9 {
+    position: absolute;
+    top: 240px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label9 {
+    position: absolute;
+    top: 265px;
+    left: 1265px;
+  }
+
+  #Campo10 {
+    position: absolute;
+    top: 240px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label10 {
+    position: absolute;
+    top: 265px;
+    left: 20px;
+  }
+
+  #Campo11 {
+    position: absolute;
+    top: 330px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label11 {
+    position: absolute;
+    top: 355px;
+    left: 1265px;
+  }
+
+  #Campo12 {
+    position: absolute;
+    top: 420px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label12 {
+    position: absolute;
+    top: 445px;
+    left: 20px;
+  }
+
+  #Campo13 {
+    position: absolute;
+    top: 420px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label13 {
+    position: absolute;
+    top: 445px;
+    left: 1265px;
+  }
+
+  #Campo14 {
+    position: absolute;
+    top: 510px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label14 {
+    position: absolute;
+    top: 535px;
+    left: 20px;
+  }
+
+  #Campo15 {
+    position: absolute;
+    top: 510px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label15 {
+    position: absolute;
+    top: 535px;
+    left: 1265px;
+  }
+
+  #Campo16 {
+    position: absolute;
+    top: 600px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label16 {
+    position: absolute;
+    top: 625px;
+    left: 20px;
+  }
+
+  #Campo17 {
+    position: absolute;
+    top: 600px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label17 {
+    position: absolute;
+    top: 625px;
+    left: 1265px;
+  }
+
+  #Campo18 {
+    position: absolute;
+    top: 690px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label18 {
+    position: absolute;
+    top: 715px;
+    left: 20px;
+  }
+
+  #Campo19 {
+    position: absolute;
+    top: 690px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label19 {
+    position: absolute;
+    top: 715px;
+    left: 1265px;
+  }
+
+  #Campo20 {
+    position: absolute;
+    top: 780px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label20 {
+    position: absolute;
+    top: 805px;
+    left: 20px;
+  }
+
+  #Campo21 {
+    position: absolute;
+    top: 780px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label21 {
+    position: absolute;
+    top: 805px;
+    left: 1265px;
+  }
+
+  #Campo22 {
+    position: absolute;
+    top: 870px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label22 {
+    position: absolute;
+    top: 895px;
+    left: 20px;
+  }
+
+  #Campo23 {
+    position: absolute;
+    top: 870px;
+    left: 1020px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label23 {
+    position: absolute;
+    top: 8950px;
+    left: 1265px;
+  }
+
+  #Campo24 {
+    position: absolute;
+    top: 330px;
+    left: 150px;
+    width: 700px;
+    height: 70px;
+  }
+
+  #Label24 {
+    position: absolute;
+    top: 355px;
+    left: 20px;
+  }
+
+  #Campo25 {
+    position: absolute;
+    top: 45px;
+    left: 875px;
+    width: 125px;
+    height: 22px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+
+  #btnlimpar,
+  #btnpesquisar,
+  #btneditar,
+  #btnsalvar,
+  #btnexcluir {
+    position: absolute;
+    top: 1000px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #A9A9A9;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  #btnlimpar {
+    left: 80%;
+    background-color: #FFFF00;
+  }
+
+  #btnpesquisar {
+    left: 40%;
+    background-color: #FFFF00;
+  }
+
+  #btneditar {
+    left: 50%;
+    background-color: #FF4500;
+  }
+
+  #btnsalvar {
+    left: 60%;
+    background-color: #00FF00;
+  }
+
+  #btnexcluir {
+    left: 70%;
+    background-color: #FF0000;
+  }
+
+  #Componentes {
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #add9b3;
+    width: 100%;
+    z-index: 10;
+  }
+
+  #CaixaMensagem {
+    display: none;
+    position: fixed;
+    background: #000;
+    border-radius: 7px;
+    width: 550px;
+    z-index: 10;
+  }
+
+  #CaixaMensagem>div {
+    background: #add9b3;
+    margin: 6px;
+  }
+
+  #CaixaMensagem>div>#TituloMsg {
+    background: #add9b3;
+    font-size: 22px;
+    padding: 10px;
+    color: #000;
+  }
+
+  #CaixaMensagem>div>#CorpoMsg {
+    background: #add9b3;
+    font-size: 15px;
+    padding: 20px;
+    color: #000;
+    text-align: center;
+  }
+
+  #CaixaMensagem>div>#RodapeMsg {
+    background: #add9b3;
+    padding: 10px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,161 @@
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <?!=Chamar("Estilo") ?>
+
+</head>
+
+<body>
+
+  <div id="Componentes"></div>
+  <div id="CaixaMensagem">
+
+    <div>
+      <div id="TituloMsg"></div>
+      <div id="CorpoMsg"></div>
+      <div id="RodapeMsg"></div>
+    </div>
+  </div>
+
+  <div id="objetos" style="width: 1800px; height: 1080px; border: 1px solid #808080">
+
+
+
+    <label id="Label1">Nome/UC</label>
+    <select id="Campo1">
+
+<option value="" disabled selected>Selecione o nome do aluno</option>
+<? 
+  var uniqueList = list.filter((item, index) => list.indexOf(item) === index);
+  for (var i = 0; i < uniqueList.length; i++) {
+?>
+<option><?=uniqueList[i];?></option>
+<? } ?>
+
+
+</select>
+
+
+    <select id="Campo2">
+  <option value="" disabled selected>Selecione a UC</option>
+  <?
+    function getUniqueList2(arr2) {
+      return arr2.filter(function(item2, index2) {
+        return arr2.indexOf(item2) === index2;
+      });
+    }
+
+    var uniqueList2 = getUniqueList2(list2);
+
+    for (var i2 = 0; i2 < uniqueList2.length; i2++) {
+  ?>
+    <option><?= uniqueList2[i2]; ?></option>
+  <? } ?>
+</select>
+
+    <label id="LabelFinal"><b>Conselho Final</b></label>
+    <label id="LabelInter"><b>Conselho Intermediário</b></label>
+
+
+    <label id="Label3">Matrícula/Result.</label>
+    <input id="Campo3" type="text" size="70">
+
+    <select id="Campo4">
+<option value="" disabled selected>Selecione o resultado</option>
+<option>Aprovado(a)</option>
+<option>Reprovado(a)</option>
+<option>Pendência</option>
+<option>Cursando</option>
+</select>
+
+    <label id="Label5">Aspecto Geral</label>
+    <select id="Campo5">
+<option value="" disabled selected>Selecione o Aspecto Geral</option>
+<option>Supera as expectativas</option>
+<option>Neutro</option>
+<option>Precisa de acompanhamento do conselho</option>
+</select>
+
+
+    <select id="Campo6">
+<option value="" disabled selected>Selecione o Aspecto Geral</option>
+<option>Supera as expectativas</option>
+<option>Neutro</option>
+<option>Precisa de acompanhamento do conselho</option>
+</select>
+
+    <label id="Label7">Envolvimento</label>
+    <textarea id="Campo7" type="text" size="70"></textarea>
+
+    <textarea id="Campo8" type="text" size="70"></textarea>
+
+    <textarea id="Campo9" type="text" size="70"></textarea>
+
+    <label id="Label10">Notas e Resultados</label>
+    <textarea id="Campo10" type="text" size="70"></textarea>
+
+    <textarea id="Campo11" type="text" size="70"></textarea>
+
+    <label id="Label12">Comportamento</label>
+    <textarea id="Campo12" type="text" size="70"></textarea>
+
+    <textarea id="Campo13" type="text" size="70"></textarea>
+
+    <label id="Label14">Desenvolvimento</label>
+    <textarea id="Campo14" type="text" size="70"></textarea>
+
+    <textarea id="Campo15" type="text" size="70"></textarea>
+
+    <label id="Label16">Ações Implemen.</label>
+    <textarea id="Campo16" type="text" size="70"></textarea>
+
+    <textarea id="Campo17" type="text" size="70"></textarea>
+
+    <label id="Label18">Coord. Pedagógica</label>
+    <textarea id="Campo18" type="text" size="70"></textarea>
+
+    <textarea id="Campo19" type="text" size="70"></textarea>
+
+    <label id="Label20">Coord. Curso</label>
+    <textarea id="Campo20" type="text" size="70"></textarea>
+
+    <textarea id="Campo21" type="text" size="70"></textarea>
+
+    <label id="Label22">Encaminhamentos</label>
+    <textarea id="Campo22" type="text" size="70"></textarea>
+
+    <textarea id="Campo23" type="text" size="70"></textarea>
+
+    <label id="Label24">OBS Pós Conselho</label>
+    <textarea id="Campo24" type="text" size="70"></textarea>
+
+    <select id="Campo25">
+    <option value="" disabled selected>Selecione o Semestre</option>
+    <option>2023/1</option>
+    <option>2023/2</option>
+    <option>2024/1</option>
+    <option>2024/2</option>
+    <option>2025/1</option>
+    <option>2025/2</option>
+
+    </select>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <?!=Chamar("Form-js")?>
+
+    <button onclick="Limpar()" id = "btnlimpar" style="width: 100px; height: 30px">LIMPAR</button>
+    <button id = "btnpesquisar" style="width: 100px; height: 30px">PESQUISAR</button>
+    <button id = "btneditar" style="width: 100px; height: 30px">EDITAR</button>
+    <button id = "btnsalvar" style="width: 100px; height: 30px">SALVAR</button>
+    <button id = "btnexcluir" style="width: 100px; height: 30px" onclick ="Confirm.Executar()">EXCLUIR</button>
+
+  </div>
+
+
+</body>
+
+</html>
